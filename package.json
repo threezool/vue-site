@@ -10,10 +10,11 @@
     "deploy-ftp": "vue-cli-service ftpdeploy --genHist --diffFileOnly --ftpCfgPath /ftpdeploy/ --ftpHistPath /ftpdeploy/",
     "publish": "npm run build && npm run git-subtree && npm run git-push",
     "git-subtree": "git add dist -f && git commit -m \"subtree commit\"",
-    "git-push": "git subtree push --force --prefix dist origin master"
+    "git-push": "git push origin `git subtree split --prefix dist development`:master --force"
   },
   "dependencies": {
     "core-js": "^3.4.4",
+    "travis": "^0.1.1",
     "vue": "^2.6.10"
   },
   "devDependencies": {
