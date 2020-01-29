@@ -7,10 +7,10 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "deploy": "npm run build && npm run deploy-ftp",
-    "deploy-ftp": "vue-cli-service ftpdeploy --genHist --diffFileOnly --ftpCfgPath /ftpdeploy/ --ftpHistPath /ftpdeploy/",
+    "deploy-ftp": "env NODE_ENV=ftp && vue-cli-service ftpdeploy --genHist --diffFileOnly --ftpCfgPath /ftpdeploy/ --ftpHistPath /ftpdeploy/",
     "publish": "env NODE_ENV=production && npm run build && npm run git-subtree && npm run git-push",
-    "git-subtree": "git add dist -f && git commit -m \"subtree commit\"",
-    "git-push": "git push origin `git subtree split --prefix dist development`:master --force"
+    "git-subtree": "git add dist -f dist && git commit -m \"subtree commit\"",
+    "git-push": "git push origin development:master --force"
   },
   "dependencies": {
     "core-js": "^3.4.4",
